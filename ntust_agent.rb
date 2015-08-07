@@ -54,11 +54,7 @@ class NtustAgent
     begin
       table_res = http_client.post("#{@base_url}/ntust_stu/stu_menu.aspx", view_state.merge({
         button[0] => button[1]
-      }), {
-        'User-Agent' => @user_agent,
-        'Accpet': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Upgrade-Insecure-Requests': '1'
-      }, :follow_redirect => false)
+      }), { 'User-Agent' => @user_agent })
     rescue Exception => e
       # handle exception here, should be invalid code
       # @doc.css('#err_msg').text == "0目前線上人數過多，請稍後再行選課!!"
